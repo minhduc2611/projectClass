@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - OurShopK5</title>
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/bootstrap.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/bootstrap.min.css" />
+    </environment>
+    <link href="~/css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+</head>
+<body>
+    <!-- header -->
+    <div class="agileits_header">
+        <div class="w3l_offers">
+            <a href="products.html">Today's special Offers !</a>
+        </div>
+        <div class="w3l_search">
+            <form action="#" method="post">
+                <input type="text" name="Product" value="Search a product..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search a product...';}" required="">
+                <input type="submit" value=" ">
+            </form>
+        </div>
+        <div class="product_list_header">
+            <form action="#" method="post" class="last">
+                <fieldset>
+                    <input type="hidden" name="cmd" value="_cart" />
+                    <input type="hidden" name="display" value="1" />
+                    <input type="submit" name="submit" value="View your cart" class="button" />
+                </fieldset>
+            </form>
+        </div>
+        <div class="w3l_header_right">
+            <ul>
+                <li class="dropdown profile_details_drop">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user" aria-hidden="true"></i><span class="caret"></span></a>
+                    <div class="mega-dropdown-menu">
+                        <div class="w3ls_vegetables">
+                            <ul class="dropdown-menu drp-mnu">
+                                <li><a href="login.html">Login</a></li>
+                                <li><a href="login.html">Sign Up</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="w3l_header_right1">
+            <h2><a href="mail.html">Contact Us</a></h2>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+    <div class="logo_products">
+        <div class="container">
+            <div class="w3ls_logo_products_left">
+                <h1><a href="index.html"><span>Grocery</span> Store</a></h1>
+            </div>
+            <div class="w3ls_logo_products_left1">
+                <ul class="special_items">
+                    <li><a href="events.html">Events</a><i>/</i></li>
+                    <li><a href="about.html">About Us</a><i>/</i></li>
+                    <li><a href="products.html">Best Deals</a><i>/</i></li>
+                    <li><a href="services.html">Services</a></li>
+                </ul>
+            </div>
+            <div class="w3ls_logo_products_left1">
+                <ul class="phone_email">
+                    <li><i class="fa fa-phone" aria-hidden="true"></i>(+0123) 234 567</li>
+                    <li><i class="fa fa-envelope-o" aria-hidden="true"></i><a href="mailto:store@grocery.com">store@grocery.com</a></li>
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+    <!--/ header-->
+
+    @RenderSection("breadcrumb", required: false)
+
+    <div class="row">
+        <div class="col-md-3">
+            @await Component.InvokeAsync("LoaiMenu")
+        </div>
+        <div class="col-md-9">
+            @RenderSection("banner_section", required: false)
+            @RenderBody()
+        </div>
+    </div>
+    <!-- newsletter -->
+    <div class="newsletter">
+        <div class="container">
+            <div class="w3agile_newsletter_left">
+                <h3>sign up for our newsletter</h3>
+            </div>
+            <div class="w3agile_newsletter_right">
+                <form action="#" method="post">
+                    <input type="email" name="Email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
+                    <input type="submit" value="subscribe now">
+                </form>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+    <!-- //newsletter -->
+    <!-- footer -->
+    <div class="footer">
+        <div class="container">            
+            <div class="agile_footer_grids">
+                <div class="col-md-3 w3_footer_grid agile_footer_grids_w3_footer">
+                    <div class="w3_footer_grid_bottom">
+                        <h4>100% secure payments</h4>
+                        <img src="images/card.png" alt=" " class="img-responsive" />
+                    </div>
+                </div>
+                <div class="col-md-3 w3_footer_grid agile_footer_grids_w3_footer">
+                    <div class="w3_footer_grid_bottom">
+                        <h5>connect with us</h5>
+                        <ul class="agileits_social_icons">
+                            <li><a href="#" class="facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
+                            <li><a href="#" class="twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                            <li><a href="#" class="google"><i class="fab fa-google-plus" aria-hidden="true"></i></a></li>
+                            <li><a href="#" class="instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+                            <li><a href="#" class="dribbble"><i class="fab fa-dribbble" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            <div class="wthree_footer_copy">
+                <p>&copy; 2019 eShop K6 - Nhất Nghệ. All rights reserved | Design by <a href="http://nhatnghe.com/">ASP.NET Core K6</a></p>
+            </div>
+        </div>
+    </div>
+    <!-- //footer -->
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="https://unpkg.com/popper.js@1.15.0/dist/umd/popper.min.js"></script>
+    <script src="~/js/bootstrap.js"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,28 @@
+﻿@model LoaiSelectModel
+@{ 
+    int loaiChon = Model.Select.HasValue ? Model.Select.Value : 0;
+}
+<select name="MaLoai" class="form-control">
+    <option value="0">-------------</option>
+    @{
+        var dsLoai = Model.Data;
+        var loaiCha = dsLoai.Where(p => p.MaLoaiCha == 0);
+    }
+    @foreach (var lo in loaiCha)
+    {
+        var dsLoaiCon = dsLoai.Where(p => p.MaLoaiCha == lo.MaLoai);
+        <optgroup label="@lo.TenLoai">
+            @foreach (var loai in dsLoaiCon)
+            {
+                <option value="@loai.MaLoai">
+                    @loai.TenLoai
+                </option>
+            }
+        </optgroup>
+    }
+</select>
+<script>
+    $(function () {
+        $("select[name='MaLoai']").val(@loaiChon.ToString());
+    });
+</script>

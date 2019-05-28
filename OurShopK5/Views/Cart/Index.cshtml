@@ -1,0 +1,94 @@
+﻿@model IEnumerable<OurShopK5.Models.CartItem>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="privacy about">
+    <h3><span>Giỏ hàng</span></h3>
+    <div class="checkout-right">
+        <h4>Giỏ hàng của bạn có: <span>@Model.Count() hàng hóa/@Model.Sum(p => p.ThanhTien).ToString("#,##0") đ</span></h4>
+        <table class="timetable_sub">
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Product</th>
+                    <th>Quality</th>
+                    <th>Product Name</th>
+                    <th>Price</th>
+                    <th>Remove</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr class="rem1">
+                        <td class="invert">1</td>
+                        <td class="invert-image">
+                            <a asp-controller=""
+                               asp-action="@item.HangMua.TenKhongDau">
+                                <img src="~/Hinh/HangHoa/@item.HangMua.Hinh" class="img-responsive" />
+                            </a>
+                        </td>
+                        <td class="invert">
+                            <div class="quantity">
+                                <div class="quantity-select">
+                                    <div class="entry value-minus">&nbsp;</div>
+                                    <div class="entry value"><span>@item.SoLuong</span></div>
+                                    <div class="entry value-plus active">&nbsp;</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="invert">@item.HangMua.TenHh</td>
+
+                        <td class="invert">@item.HangMua.DonGia.ToString("#,##0") đ</td>
+                        <td class="invert">
+                            <div class="rem">
+                                <div class="close1"> </div>
+                            </div>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <br /><br />
+    <div class="col-md-12 address_form_agile">
+        <h3>THÔNG TIN KHÁCH HÀNG</h3>
+        <form asp-controller="Cart" asp-action="Checkout" class="creditly-card-form agileinfo_form">
+            <section class="creditly-wrapper wthree, w3_agileits_wrapper">
+                <div class="information-wrapper">
+                    <div class="first-row form-group">
+                        <div class="controls">
+                            <label class="control-label">Người nhận hàng: </label>
+                            <input class="billing-address-name form-control" type="text" name="NguoiNhan" placeholder="Người nhận hàng">
+                        </div>
+                        <div class="w3_agileits_card_number_grids">
+                            <div class="w3_agileits_card_number_grid_left">
+                                <div class="controls">
+                                    <label class="control-label">Điện thoại:</label>
+                                    <input class="form-control" type="text" placeholder="Điện thoại" name="DienThoai">
+                                </div>
+                            </div>
+                            <div class="w3_agileits_card_number_grid_right">
+                                <div class="controls">
+                                    <label class="control-label">Địa chỉ giao hàng: </label>
+                                    <input class="form-control" type="text" name="DiaChiGiaoHang" placeholder="Địa chỉ giao hàng">
+                                </div>
+                                <div class="controls">
+                                    <label class="control-label">Email: </label>
+                                    <input class="form-control" type="text" name="Email" placeholder="Email">
+                                </div>
+                            </div>
+                            <div class="clear"> </div>
+                        </div>
+                    </div>
+                    <button class="submit check_out">Đặt hàng</button>
+                </div>
+            </section>
+        </form>        
+    </div>
+
+    <div class="clearfix"> </div>
+</div>

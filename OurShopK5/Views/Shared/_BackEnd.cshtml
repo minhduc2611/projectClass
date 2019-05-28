@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="~/js/bootstrap.js"></script>
+    <style>
+        .nn-header {
+            height: 170px;
+            border: 1px solid green;
+            position: relative;
+        }
+
+        .nn-company {
+            position: absolute;
+            top: 45px;
+            left: 20px;
+            text-shadow: 0 0 4px black;
+        }
+
+        .nn-slogan {
+            position: absolute;
+            top: 95px;
+            left: 20px;
+            border-top: 1px dotted blue;
+        }
+
+        .nn-sheet {
+            min-height: 400px;
+            box-shadow: 0 0 5px lightgray;
+            border: 1px dashed green;
+            margin: 0 3px;
+            border-radius: 5px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <header class="nn-header">
+            <h1 class="nn-company">Nhất Nghệ Shop</h1>
+            <h5 class="nn-slogan">Mua may, bán đắt, Lợi ích mọi người</h5>
+        </header>
+
+        <!--Menu ngang-->
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <a class="navbar-brand" href="#">NNShop</a>
+
+            <!-- Toggler/collapsibe Button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!--Navbar link-->
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                            Quản lý
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" asp-area="Admin" asp-controller="HangHoa" asp-action="Index">Hàng hóa</a>
+                            <a class="dropdown-item">Nhà cung cấp</a>
+                            <a class="dropdown-item">Chủng loại</a>
+                            <a class="dropdown-item" asp-area="Admin" asp-controller="HangHoa" asp-action="">Khách hàng</a>
+                            <a class="dropdown-item" asp-area="Admin" asp-controller="DonHang" asp-action="Index">Hóa đơn</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                            Thống kê
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Kiểm kê hàng tồn</a>
+                            <a class="dropdown-item" href="#">Theo loại</a>
+                            <a class="dropdown-item" href="#">Theo hãng</a>
+                            <a class="dropdown-item" href="#">Thống kê doanh số</a>
+                            <a class="dropdown-item" href="#">Theo từng mặt hàng</a>
+                            <a class="dropdown-item" href="#">Theo từng loại hàng</a>
+                            <a class="dropdown-item" href="#">Theo từng hãng</a>
+                            <a class="dropdown-item" href="#">Theo từng khách hàng</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Theo từng năm</a>
+                            <a class="dropdown-item" href="#">Theo từng quí</a>
+                            <a class="dropdown-item" href="#">Theo từng tháng</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                            Thành viên
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Đăng nhập</a>
+                            <a class="dropdown-item" href="#">Đăng ký</a>
+                            <a class="dropdown-item" href="#">Quên mật khẩu</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Tài khoản</a>
+                            <a class="dropdown-item" href="#">Đăng xuất</a>
+                        </div>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <img src="~/images/eng.gif" />
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <img src="~/images/vit.gif" />
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav><!--/End Menu ngang-->
+        <div class="nn-sheet">
+            @RenderBody()
+        </div>
+    </div>
+</body>
+</html>

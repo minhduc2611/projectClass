@@ -1,0 +1,19 @@
+﻿@model IEnumerable<OurShopK5.DataModels.Loai>
+<!--Menu loại-->
+<div class="card">
+    <div class="card-header bg-info">DANH MỤC</div>
+    <div class="list-group">
+        @{
+            var dsLoais = Model.Where(p => p.MaLoaiCha != 0).OrderBy(p => p.MaLoaiCha);
+        }
+        @using OurShopK5.DataModels
+        @foreach (Loai loai in dsLoais)
+        {
+
+            <a asp-action="Index" asp-controller="HangHoa" asp-route-loai="@loai.MaLoai" class="list-group-item">
+                @*<i class='fas fa-chess-knight'></i>*@
+                @loai.TenLoai
+            </a>
+        }
+    </div>
+</div>

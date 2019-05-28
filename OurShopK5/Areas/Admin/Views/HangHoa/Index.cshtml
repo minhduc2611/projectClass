@@ -1,0 +1,55 @@
+﻿@model IEnumerable<OurShopK5.DataModels.HangHoa>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_BackEnd.cshtml";
+}
+
+<h2>Danh sách Hàng hóa</h2>
+
+<p>
+    <a asp-action="Create" asp-controller="HangHoa" asp-area="Admin" class="btn btn-primary">Tạo mới</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TenHh)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hinh)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DonGia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GiamGia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Loai)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenHh)
+                </td>
+                <td>
+                    <img src="~/Hinh/HangHoa/@item.Hinh" height="90" />
+                </td>
+                <td>@item.DonGia.ToString("#,##0") đ</td>
+                <td>@item.GiamGia</td>
+                <td>@item.Loai.TenLoai</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.MaHh">Sửa</a> |
+                    <a asp-action="Details" asp-route-id="@item.MaHh">Chi tiết</a> |
+                    <a asp-action="Delete" asp-route-id="@item.MaHh">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

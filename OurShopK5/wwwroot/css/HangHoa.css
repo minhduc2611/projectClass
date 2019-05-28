@@ -1,0 +1,24 @@
+﻿.hh-box{
+    width: 220px; height:300px; border: 1px solid blue;
+    border-radius:7px; text-align:center; position:relative;
+    display:inline-block;/*khối nội tuyến, tự trôi lên*/
+    margin: 5px;
+}
+    .hh-box:hover {
+        /*box-shadow:ngang doc độ_dày màu;*/
+        box-shadow: 0 0px 10px red;
+    }
+.hh-img{width:180px; height:240px; margin-top:10px;}
+.hh-moi{width:80px; position:absolute;top:0; right:0;}
+.hh-gia{position:absolute; left: 5px; bottom:5px; font-size:large; color: green;}
+.hh-ten{position:absolute; left:0; bottom: 50px; font-size:large;font-weight:bolder; color:blue; background-color:white;
+        width:inherit;}
+.hh-mua {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;    
+}
+
+.pagination li{
+    width:25px; height:25px; background-color: #f8eba3; margin:2px; text-align:center;
+}

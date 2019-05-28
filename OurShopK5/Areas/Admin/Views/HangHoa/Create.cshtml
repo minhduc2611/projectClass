@@ -1,0 +1,65 @@
+﻿@model OurShopK5.DataModels.HangHoa
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_BackEnd.cshtml";
+}
+<style>
+    .ck-editor__editable_inline {
+        min-height: 400px;
+    }
+</style>
+<h2>Thêm hàng hóa</h2>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="MaLoai" class="control-label"></label>
+                @await Html.PartialAsync("~/Areas/Admin/Views/Shared/_Loai.cshtml", (LoaiSelectModel)ViewBag.LoaiCombo)
+            </div>
+            <div class="form-group">
+                <label asp-for="TenHh" class="control-label"></label>
+                <input asp-for="TenHh" class="form-control" />
+                <span asp-validation-for="TenHh" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Hinh" class="control-label"></label>
+                <input type="file" name="fHinh" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="MoTa" class="control-label"></label>
+                <textarea asp-for="MoTa" class="form-control"></textarea>
+                <span asp-validation-for="MoTa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DonGia" class="control-label"></label>
+                <input asp-for="DonGia" class="form-control" />
+                <span asp-validation-for="DonGia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GiamGia" class="control-label"></label>
+                <input asp-for="GiamGia" class="form-control" />
+                <span asp-validation-for="GiamGia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Thêm mới" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-danger">Danh sách</a>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="https://cdn.ckeditor.com/ckeditor5/12.1.0/classic/ckeditor.js"></script>
+<script>
+    $(function () {
+        ClassicEditor
+            .create(document.querySelector('#MoTa'))
+            .then(editor => {
+                console.log(editor);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    });
+</script>

@@ -1,0 +1,63 @@
+﻿@model PagedList.Core.IPagedList<OurShopK5.Models.HangHoaView>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<link href="~/css/HangHoa.css" rel="stylesheet" />
+
+<pager class="pager-container" list="@Model" asp-action="Index" asp-controller="HangHoa" asp-route-loai="@ViewBag.Loai" />
+
+@foreach (var hh in Model)
+{
+    string loai = MyTool.ConvertUrlFriendly(hh.Loai);
+    <div class="hh-box">
+        <a asp-controller="@loai"
+           asp-action="@hh.TenKhongDau">
+            <img src="~/Hinh/HangHoa/@hh.Hinh" class="hh-img" />
+        </a>
+        <img src="images/moi-icon.png" class="hh-moi" />
+        <div class="hh-gia">@hh.GiaBan.ToString("#,##0") đ</div>
+        <div class="hh-ten">@hh.TenHh</div>
+        <button data-mahh="@hh.MaHh" class="btn btn-success hh-mua">Mua</button>
+    </div>
+}
+@*<h3 class="w3l_fruit">Fruits & Vegetables</h3>
+    <div class="w3ls_w3l_banner_nav_right_grid1 w3ls_w3l_banner_nav_right_grid1_veg">
+        @foreach (var hh in Model)
+        {
+            <div class="col-md-3">
+                <div class="hover14 column">
+                    <div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
+                        <div class="tag"><img src="images/tag.png" alt=" " class="img-responsive"></div>
+                        <div class="agile_top_brand_left_grid1">
+                            <figure>
+                                <div class="snipcart-item block">
+                                    <div class="snipcart-thumb">
+                                        @{
+                                            string loai = MyTool.ConvertUrlFriendly(hh.Loai);
+                                        }
+                                        <a
+    asp-controller="@loai"
+    asp-action="@hh.TenKhongDau">
+                                            <img src="~/Hinh/HangHoa/@hh.Hinh" alt=" " class="img-responsive" width="140" />
+                                        </a>
+                                        <p>@hh.TenHh</p>
+                                        <h4>
+                                            @hh.GiaBan.ToString("#,##0")đ
+                                            @if (hh.DangGiamGia)
+                                            {
+               <span>@hh.DonGia.ToString("#,##0")đ</span>
+                                            }
+                                        </h4>
+                                    </div>
+                                    <div class="snipcart-details">
+                                        <button>Mua</button>
+                                    </div>
+                                </div>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>*@
